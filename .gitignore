@@ -1,0 +1,16 @@
+# Build outputs (rebuild from source via demo\build_beacon.cmd)
+*.obj
+*.lib
+*.exp
+*.pdb
+demo/beacon.dll
+
+# Run artifacts
+fullchain.txt
+demo/fullchain.txt
+*.wr
+*.dmp
+pwned.txt
+
+# Debugger symbol cache
+symsrv*/
