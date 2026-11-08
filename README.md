@@ -47,7 +47,6 @@ call demo\fullchain.cmd C:\path\to\crash_seed.heic
 Expected on a vulnerable build: `%USERPROFILE%\Desktop\pwned.txt` appears and the
 URL opens in the browser. The raw debugger log goes to `fullchain.txt`.
 
-## Disclosure
-
-Shared for defensive research after reporting to MSRC. Do not use against systems
-you are not authorized to test.
+## Credit
+Austin Mannchen, discoverer of the vuln.
+William Ryan Hanna, PoC idea.
