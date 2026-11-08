@@ -49,4 +49,7 @@ URL opens in the browser. The raw debugger log goes to `fullchain.txt`.
 
 ## Credit
 Austin Mannchen, discoverer of the vuln.
+
+
+                                      
 William Ryan Hanna, PoC idea.
