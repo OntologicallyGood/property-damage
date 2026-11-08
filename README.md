@@ -47,6 +47,30 @@ call demo\fullchain.cmd C:\path\to\crash_seed.heic
 Expected on a vulnerable build: `%USERPROFILE%\Desktop\pwned.txt` appears and the
 URL opens in the browser. The raw debugger log goes to `fullchain.txt`.
 
+## Alternative demo(no tooling required)
+1. Copy `poc/crash_seed.heic` to a working folder.
+2. Open the folder in File Explorer, right-click the file → **Properties**.
+3. Go to the **Details** tab. Find the **Camera model** field.
+4. Click its value cell, type/paste any string of ~60+ characters (any content works;
+   long strings give the most reliable result).
+5. Click **OK** (or Apply first).
+6. **Expected:** `explorer.exe` terminates with heap corruption (`0xC0000374`,
+   Event ID 1000, faulting module `msheif_store.dll` per the stack). Explorer
+   auto-restarts.
+
+Notes:
+- The bug is heap-state dependent: ~1 in 2–3 attempts fires. If the first attempt
+  survives (file gets rewritten), use a **fresh copy** of `crash_seed.heic` — do not
+  reuse the rewritten file.
+- The same file as `.avif` is included (`poc/crash_seed.avif`); the `.heic` extension is
+  what exposes the Details-tab editor. Both files are byte-identical
+  (MD5 `0b8c40bfd72339aa48e189571f3f8f58`).
+- The control test: a normal HEIF photo (e.g. any camera photo) edited the same way
+  succeeds without crash — the file must have the animated+audio container shape.
+
+---
+
+
 ## Credit
 Austin Mannchen, discoverer of the vuln.
 
