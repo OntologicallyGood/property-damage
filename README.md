@@ -1,5 +1,5 @@
 # msheif_store UAF → code execution (PoC)
-
+CVE-2026-100204
 Use-after-free in the Microsoft HEIF/AVIF metadata rewrite path
 (`msheif_store.dll`, reached via `PhotoMetadataHandler!CPhotoPropertyStore::Commit`)
 drives an attacker-influenced indirect call. This repo demonstrates full code
